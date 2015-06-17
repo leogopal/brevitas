@@ -92,7 +92,10 @@ function brevitas_customize_register( $wp_customize ) {
 	$wp_customize->get_control( 'blogname' )->priority = 10;
 
 	// logo uploader
-	$wp_customize->add_setting( 'brevitas_logo', array( 'default' => null ) );
+	$wp_customize->add_setting( 'brevitas_logo', array( 
+		'default' => null,
+		'sanitize_callback' => 'esc_url_raw'
+	) );
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'brevitas_logo', array(
 		'label'		=> __( 'Custom Site Logo (replaces title)', 'brevitas' ),
 		'section'	=> 'title_tagline',
@@ -131,6 +134,7 @@ function brevitas_customize_register( $wp_customize ) {
 		'default'		=> '#000000',
 		'type'			=> 'option', 
 		'capability'	=> 'edit_theme_options',
+		'sanitize_callback'	=> 'brevitas_sanitize_hex_color'  
 	) );		
 	$wp_customize->add_control( new Brevitas_WP_Customize_Color_Control( $wp_customize, 'brevitas_design_color', array(
 		'label'		=> __( 'Primary Design Color', 'brevitas' ), 
@@ -144,6 +148,7 @@ function brevitas_customize_register( $wp_customize ) {
 		'default'		=> '#ffffff',
 		'type'			=> 'option', 
 		'capability'	=> 'edit_theme_options',
+		'sanitize_callback'	=> 'brevitas_sanitize_hex_color'  
 	) );		
 	$wp_customize->add_control( new Brevitas_WP_Customize_Color_Control( $wp_customize, 'brevitas_design_color_text', array(
 		'label'		=> __( 'Text Color for Designed Elements', 'brevitas' ), 

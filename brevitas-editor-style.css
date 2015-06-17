@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: "Roboto Slab", "Georgia", "Times New Roman", Times, serif;
+	font-size: 15px;
+	line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6, .comments-title {
+	clear: both;
+	font-weight: 700;
+	margin-bottom: 24px;
+}
+h1, h2 {
+	font-size: 23px;
+}
+h3, h4 {
+	font-size: 18px;
+}
+h5, h6 {
+	font-size: 14px;
+}

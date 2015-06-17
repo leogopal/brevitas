@@ -49,7 +49,18 @@ function brevitas_setup() {
 	/**
 	 * Enable support for Post Thumbnails on posts and pages.
 	 */
-	add_theme_support( 'post-thumbnails' );	
+	add_theme_support( 'post-thumbnails' );
+
+	/**
+	 * Enable title-tag support
+	 */
+	add_theme_support( "title-tag" );
+
+	/**
+	 * Custom Header theme support
+	 */
+	add_theme_support( 'custom-header' );
+
 	// add a hard cropped (for uniformity) image size for the product grid
 	add_image_size( 'brevitas_featured_image', 738, 200, true );
 
@@ -72,6 +83,16 @@ function brevitas_setup() {
 }
 endif; // brevitas_setup
 add_action( 'after_setup_theme', 'brevitas_setup' );
+
+/**
+ * Register Admin Editor Styles
+ * 
+ * @link https://codex.wordpress.org/Function_Reference/add_editor_style
+ */
+function brevitas_add_editor_styles() {
+    add_editor_style( 'brevitas-editor-style.css' );
+}
+add_action( 'admin_init', 'brevitas_add_editor_styles' );
 
 /**
  * Register widget area.
